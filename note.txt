@@ -1,0 +1,20 @@
+1- npm install -g @vue/cli
+2- vue
+3- vue create cli
+4- cd cli
+5- nom run serve (localost:8080)
+
+-------------------------------------------------
+
+1- node_modues (added packages)
+2- public (entry point to run)
+3- src (my application)
+
+=> main.js
+	new Vue
+	App.vue
+
+=> Component (.Vue)
+	-template(HTML)
+	-script(JS)
+	-style(CSS)

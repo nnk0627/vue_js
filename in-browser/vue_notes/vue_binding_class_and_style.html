@@ -41,9 +41,9 @@
 
 		// create new vue instance
 		var vm = new Vue({
-			el: '#app',
-			data: data,
-			computed: {
+			el: '#app',   //to do data bined
+			data: data,    //when data bined to use
+			computed: {    //same method but difference is after once run,Computed ga mat htar tal,data ma change yin ma run buu.  Method ga call tine call tine run tal.
 			  classObject: function () {
 			    return {
 			      active: this.isActive && this.error,

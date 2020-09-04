@@ -1,8 +1,8 @@
 1- npm install -g @vue/cli
 2- vue
 3- vue create cli
-4- cd cli
-5- nom run serve (localost:8080)
+4- cd cli						//run chin yin cmd mar no.4,5 run
+5- npm run serve (localhost:8080)
 
 -------------------------------------------------
 
@@ -18,3 +18,13 @@
 	-template(HTML)
 	-script(JS)
 	-style(CSS)
+
+-------------------------------------------------------
+=> UI					-
+	-bootstarp-vue 
+	C:\xampp\htdocs\Vue\cli>npm install vue bootstrap-vue bootstrap
+
+=>Route
+	-vue-router
+	C:\xampp\htdocs\Vue\cli>npm install vue-router
+

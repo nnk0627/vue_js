@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row my-3">
       <div class="col-md-12">
-        <h2>Item Details</h2>
+        <h2>Item Detail / Show</h2>
       </div>
     </div>
     
@@ -15,20 +15,21 @@
             </div>
             <div class="col-md-8">
               <div class="card-body text-left">
-                <!-- <h5 class="card-title">Name:</h5> {{item.item_name}} -->
-                <p class="card-text"><b>Name:</b> {{item.item_name}}</p>
-                <p class="card-text"><b>Description:</b> {{ item.item_desc }} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <!-- <p>
-                  <span class="mr-2"> <b-icon icon="tag-fill" variant="info"></b-icon> {{item.brand.brand_name}}</span>
-                  <span> <b-icon icon="tag-fill" variant="dark"></b-icon> {{item.subcategory.subcategory_name}}</span>
-                </p> -->
+                <p class="card-title"><strong>Name: </strong>{{item.item_name}}</p>
+                <p class="card-text"><strong>Description: </strong>{{ item.item_desc }} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p>
+                  <span class="mr-2"> <b-icon icon="tag-fill" variant="info"></b-icon> <strong>Brand: </strong>{{item.brand.brand_name}}</span>
+                  <span> <b-icon icon="tag-fill" variant="dark"></b-icon> <strong>Subcategory: </strong>{{item.subcategory.subcategory_name}}</span>
+                </p>
+
+                <p><strong>Price: </strong><strong class="text-danger">{{item.item_price}} MMK</strong></p>
                 
-              <!--   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-              <p><b>Price: </b>{{item.item_price}}</p>
-              <p><b>Choose Quantity: </b>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p><strong>Choose Quantity: </strong>
                 <input type="number" name="qty" v-model="qty" class="form-control w-25 d-inline-block" min="1">
-              </p>
-                <button class="ml-3 btn btn-success" @click="addToCart()">Add To Cart<img src="@/assets/cart.png" width="30" height="30" alt="Vue Cart" loading="lazy"></button>
+                </p>
+                <button class="ml-3 btn btn-outline-warning text-success" @click="addToCart()">Add To Cart</button>
+                <button class="ml-3 btn btn-outline-warning text-success" @click="goBack()">Continue Shopping</button>
 
               </div>
             </div>
@@ -62,6 +63,9 @@
       addToCart() {
         let item = {id:this.item.item_id,name:this.item.item_name,price:this.item.item_price,qty:this.qty};
         this.$store.dispatch('addToCart', item)
+      },
+      goBack(){
+        window.history.length>1?this.$router.go(-1):this.$router.push('/')
       }
     }
   }

@@ -1,23 +1,22 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
+   <navbar></navbar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import NavBar from './components/NavBar.vue'
+import navbar from './components/navbar.vue'
 export default {
   components:{
-    NavBar
+    navbar
   },
   name: 'App',
   mounted(){
     this.$router.push('/items')
   },
   data(){
-    return {
-      
+    return{
     }
   }
 }
@@ -31,5 +30,22 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
+}
+/*css */
+.navbar-brand
+{
+  font-family: Lucida Console, Courier, monospace;
+  font-size: 2.2rem;  
+  font-color: #daa52c;
+}
+.navbar ul li
+{
+  font-size: 1.2rem;
+  font-family: courier;
+}
+.navbar ul li:hover
+{
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 </style>

@@ -20,6 +20,18 @@ const store = new Vuex.Store({
       let indexToDelete = state.cart.find(item => item.id == payload)
       state.cart.splice(indexToDelete, 1)
     },
+    plusCart (state, payload) {
+      let indexToDelete = state.cart.find(item => item.id == payload)
+      ++indexToDelete.qty
+    },
+    minusCart (state, payload) {
+      let indexToDelete = state.cart.find(item => item.id == payload)
+      if (indexToDelete.qty == 1) {
+        state.cart.splice(indexToDelete, 1)
+      }else{
+        --indexToDelete.qty
+      }
+    },
     saveCart(state) {
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
@@ -36,16 +48,16 @@ const store = new Vuex.Store({
       commit('addToCart', payload)
       commit('saveCart')
     },
-    plusBtn({ commit }, payload) {
-      commit('plusBtn', payload)
-      commit('saveCart')
-    },
-    minusBtn({ commit }, payload) {
-      commit('minusBtn', payload)
-      commit('saveCart')
-    },
     removeFromCart({ commit }, payload) {
       commit('removeFromCart', payload)
+      commit('saveCart')
+    },
+    plusCart({ commit }, payload) {
+      commit('plusCart', payload)
+      commit('saveCart')
+    },
+    minusCart({ commit }, payload) {
+      commit('minusCart', payload)
       commit('saveCart')
     },
     getData({ commit }){
